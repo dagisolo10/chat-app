@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@plugin "tailwind-scrollbar";
+@plugin "daisyui" {
+    themes:
+        black --default,
+        cupcake;
+}
+
+@theme {
+    --color-main: theme(color.slate.900);
+}
+
+.animated-border {
+    background: conic-gradient(from var(--deg), var(--color-slate-400) 0deg 20deg, transparent 20deg 360deg);
+    animation: rotate 8s linear infinite;
+}
+@property --deg {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+@keyframes rotate {
+    from {
+        --deg: 0deg;
+    }
+    to {
+        --deg: 360deg;
+    }
+}
+
+.auth-badge {
+    @apply inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-cyan-500/20 text-cyan-300;
+}
+
+.auth-btn {
+    @apply px-12 py-1 cursor-pointer duration-300 bg-cyan-700 text-sm md:text-base text-cyan-100 rounded-md font-medium
+  hover:bg-cyan-900 focus:ring-1 focus:ring-cyan-500;
+}
+
+.auth-input-label {
+    @apply text-slate-300 md:text-base text-sm;
+}
+.auth-input-icon {
+    @apply size-4 text-slate-400;
+}
+/*  */
+
+.input {
+    @apply w-full bg-slate-800/50 border border-slate-700 rounded-lg py-2 pl-10 pr-4 text-slate-200 placeholder-slate-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent;
+}
+
+.auth-link {
+    @apply px-4 py-2 inline-block bg-cyan-500/10 rounded-lg text-cyan-400
+  hover:text-cyan-500 text-sm transition-colors;
+}
