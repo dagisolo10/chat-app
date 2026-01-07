@@ -11,6 +11,7 @@ function App() {
     const { authUser, isCheckingAuth, checkAuth } = useAuthStore();
 
     useEffect(() => {
+        console.log("🚀 App mounted — running checkAuth()");
         checkAuth();
     }, [checkAuth]);
 
