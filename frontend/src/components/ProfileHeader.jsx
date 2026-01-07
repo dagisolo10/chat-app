@@ -67,9 +67,9 @@ export default function ProfileHeader() {
                         className="text-slate-400 hover:text-slate-200 transition-colors cursor-pointer">
                         {soundEnabled ? <Volume2 size={16} /> : <VolumeOffIcon size={16} />}
                     </button>
-                    <butto className="" onClick={() => setSideBar(!sideBar)}>
+                    <button onClick={() => setSideBar(!sideBar)}>
                         <X className="size-4 text-slate-400 hover:text-slate-200 transition-colors cursor-pointer" />
-                    </butto>
+                    </button>
                 </div>
             </div>
         </div>

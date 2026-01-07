@@ -21,10 +21,13 @@ export default function ChatPage() {
     const sidebarRef = useRef(null);
     const fileInputRef = useRef(null);
 
-    const online = chats.filter(chat => onlineUsers.includes(chat))
+    const online = chats.filter((chat) => onlineUsers.includes(chat));
     const offline = chats.filter((chat) => !onlineUsers.includes(chat));
 
-    const all = [...online, ...offline]
+    const all = [...online, ...offline];
+
+    console.log("Online", online);
+    console.log("Offline", offline);
 
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -65,18 +68,18 @@ export default function ChatPage() {
 
             <div className="flex flex-col gap-4 items-center border-r p-2 sm:p-4 border-slate-300/20">
                 <div className="avatar group avatar-online">
-                    <button onClick={() => fileInputRef.current.click()} className="size-12 cursor-pointer rounded-full overflow-hidden relative">
+                    <div onClick={() => fileInputRef.current.click()} className="size-12 cursor-pointer rounded-full overflow-hidden relative">
                         <img className="size-full object-cover" src={selectedImage || authUser.profilePic || "/avatar.png"} alt="User image" />
                         <div className="absolute inset-0 bg-black/50 rounded-full opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
                             <span className="text-white text-xs">Change</span>
                         </div>
-                    </button>
+                    </div>
 
                     <input ref={fileInputRef} onChange={handleImageUpload} type="file" accept="image/*" className="hidden" />
                 </div>
                 <hr className="w-full text-slate-700" />
                 {all.map((chat) => (
-                    <div onClick={() => setSelectedUser(chat)} className={`avatar ${onlineUsers.includes(chat._id) ? "avatar-online" : "avatar-offline"}`}>
+                    <div key={chat._id} onClick={() => setSelectedUser(chat)} className={`avatar ${onlineUsers.includes(chat._id) ? "avatar-online" : "avatar-offline"}`}>
                         <div className="size-10 sm:size-12 cursor-pointer p-1 bg-slate-800 hover:bg-slate-700 duration-300 rounded-lg overflow-hidden ">
                             <img className="object-cover rounded-full" src={chat.profilePic || "/avatar.png"} alt={chat.fullName} />
                         </div>

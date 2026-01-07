@@ -14,7 +14,6 @@ export const useAuthStore = create((set, get) => ({
     onlineUsers: [],
 
     checkAuth: async () => {
-        console.log("🧩 Running checkAuth()");
         try {
             const res = await api.get("/auth/get-profile");
             set({ authUser: res.data });
@@ -81,8 +80,6 @@ export const useAuthStore = create((set, get) => ({
 
         // if no authenticated user or already connected, return
         if (!authUser || get().socket?.connected) return;
-
-        console.log("🔌 Attempting socket connection to:", BASE_URL);
 
         const socket = io(BASE_URL, {
             withCredentials: true,
