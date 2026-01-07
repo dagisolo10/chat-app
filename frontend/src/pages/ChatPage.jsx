@@ -34,7 +34,7 @@ export default function ChatPage() {
 
     return (
         <ChatAnimatedBorder>
-            <div ref={sidebarRef} className={`absolute top-0 ${sideBar ? "left-0" : "-left-full"} duration-1000 z-20 w-1/2 md:w-1/3 bg-slate-900/70 backdrop-blur-sm flex flex-col items-start h-full rounded-l-2xl border-r border-slate-300/20`}>
+            <div ref={sidebarRef} className={`absolute top-0 ${sideBar ? "left-0" : "-left-full"} duration-1000 z-20 w-3/4 md:w-1/3 bg-slate-900/70 backdrop-blur-sm flex flex-col items-start h-full rounded-l-2xl border-r border-slate-300/20`}>
                 <ProfileHeader />
                 <ActiveTabSwitch />
                 <div className="overflow-y-auto w-full p-4">{activeTab === "chats" ? <ChatList /> : <ContactList />}</div>
