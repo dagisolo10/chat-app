@@ -64,7 +64,7 @@ export default function LoginPage() {
             </div>
             <div className="hidden lg:flex lg:w-1/2 p-8 items-center justify-center bg-linear-to-bl from-slate-800/20 to-transparent">
                 <div className="flex flex-col items-center">
-                    <img src="/public/login.png" className="aspect-square w-11/12 object-contain" />
+                    <img src="/login.png" className="aspect-square w-11/12 object-contain" />
                     <div className="space-y-4">
                         <h3 className="text-xl font-medium text-cyan-400">
                             Connect Anytime, Anywhere
