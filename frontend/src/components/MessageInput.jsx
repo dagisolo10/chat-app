@@ -49,9 +49,9 @@ export default function MessageInput() {
                     </div>
                 </div>
             )}
-            <form className="flex items-center gap-4" onSubmit={handleSubmit}>
+            <form className="flex items-center gap-2" onSubmit={handleSubmit}>
                 <input
-                    className="text-sm placeholder:text-sm focus-within:border-slate-500 outline-none px-4 py-2 bg-slate-800 grow rounded-md border border-slate-700"
+                    className="w-full text-sm placeholder:text-sm focus-within:border-slate-500 outline-none px-4 py-2 bg-slate-800 rounded-md border border-slate-700"
                     placeholder="Type your message..."
                     onChange={(e) => {
                         setText(e.target.value);
@@ -60,7 +60,7 @@ export default function MessageInput() {
                     value={text}
                     type="text"
                 />
-                <div className="flex gap-4 items-center">
+                <div className="flex gap-2 items-center">
                     <input ref={fileInputRef} onChange={handleImageUpload} type="file" className="hidden" />
 
                     <button type="button" className={`${imagePreview && "text-cyan-500"} text-slate-700 hover:bg-slate-700 hover:text-slate-300 border hover:border-slate-600 duration-300 cursor-pointer p-2 rounded-md`} onClick={() => fileInputRef.current.click()}>

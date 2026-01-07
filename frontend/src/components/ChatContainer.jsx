@@ -24,9 +24,10 @@ export default function ChatContainer() {
 
     if (isMessagesLoading) return <MessagesLoadingSkeleton />;
     return (
-        <div className="w-full flex flex-col items-center overflow-y-auto">
+        <div className="flex-1 flex flex-col w-full h-full overflow-hidden">
             <ChatHeader />
-            <div className="w-full flex-1 p-6 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-slate-900 py-8">
+
+            <div className="flex-1 overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-slate-900">
                 {messages.length > 0 && !isMessagesLoading ? (
                     <div className=" mx-auto space-y-1">
                         {messages.map((msg) => (

@@ -40,7 +40,7 @@ export default function ChatPage() {
                 <div className="overflow-y-auto w-full p-4">{activeTab === "chats" ? <ChatList /> : <ContactList />}</div>
             </div>
 
-            <div className="flex flex-col gap-4 items-center border-r p-4 border-slate-300/20">
+            <div className="flex flex-col gap-4 items-center border-r p-2 border-slate-300/20">
                 <img className="size-10 md:size-12 rounded-full object-cover" src={authUser.profilePic} alt="Profile Pic" />
                 <hr className="w-full text-slate-700" />
                 {chats.map((chat) => (
@@ -50,7 +50,7 @@ export default function ChatPage() {
                         </div>
                     </div>
                 ))}
-                <Menu className="mt-auto size-4 text-slate-400 hover:text-slate-200 transition-colors cursor-pointer" onClick={() => setSideBar((prev) => (prev = !prev))} />
+                <Menu className="mt-auto mb-4 size-4 text-slate-400 hover:text-slate-200 transition-colors cursor-pointer" onClick={() => setSideBar((prev) => (prev = !prev))} />
             </div>
 
             <div className="flex flex-1 flex-col rounded-2xl backdrop-blur-sm">{selectedUser ? <ChatContainer /> : <NoConversation />}</div>
