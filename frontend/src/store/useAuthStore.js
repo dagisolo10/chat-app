@@ -14,6 +14,7 @@ export const useAuthStore = create((set, get) => ({
     onlineUsers: [],
 
     checkAuth: async () => {
+        console.log("🧩 Running checkAuth()");
         try {
             const res = await api.get("/auth/get-profile");
             set({ authUser: res.data });
