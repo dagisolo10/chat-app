@@ -24,9 +24,9 @@ export default function ChatContainer() {
 
     if (isMessagesLoading) return <MessagesLoadingSkeleton />;
     return (
-        <>
+        <div className="w-full flex flex-col items-center overflow-y-auto">
             <ChatHeader />
-            <div className="flex-1 p-6 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-slate-900 py-8">
+            <div className="w-full flex-1 p-6 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-slate-900 py-8">
                 {messages.length > 0 && !isMessagesLoading ? (
                     <div className=" mx-auto space-y-1">
                         {messages.map((msg) => (
@@ -48,6 +48,6 @@ export default function ChatContainer() {
                 )}
             </div>
             <MessageInput />
-        </>
+        </div>
     );
 }

@@ -18,7 +18,7 @@ export default function ChatHeader() {
     }, [setSelectedUser]);
 
     return (
-        <div className="flex bg-slate-800/50 border-b rounded-tr-2xl border-slate-500/20 items-center p-4 justify-between">
+        <div className="w-full flex bg-slate-800/50 border-b rounded-tr-2xl border-slate-500/20 items-center p-4 justify-between">
             <div className="flex items-center gap-4">
                 <div className={`avatar ${isOnline ? "avatar-online" : "avatar-offline"}`}>
                     <div className="size-10 md:size-12 rounded-full">
