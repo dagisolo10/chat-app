@@ -21,8 +21,12 @@ export default function ChatPage() {
     const sidebarRef = useRef(null);
     const fileInputRef = useRef(null);
 
-    const online = chats.filter((chat) => onlineUsers.includes(chat));
-    const offline = chats.filter((chat) => !onlineUsers.includes(chat));
+    const online = chats.filter((chat) => {
+        if (onlineUsers.includes(chat)) return chat;
+    });
+    const offline = chats.filter((chat) => {
+        if (!onlineUsers.includes(chat)) return chat;
+    });
 
     const all = [...online, ...offline];
 
