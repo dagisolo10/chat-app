@@ -7,6 +7,8 @@ exports.socketAuthMiddleware = async (socket, next) => {
     try {
         const cookies = socket.handshake.headers.cookie;
         if (!cookies) return next(new Error("No cookies found"));
+        console.log("🛰️ Incoming socket handshake:", socket.handshake.headers.origin);
+
 
         const { accessToken } = cookie.parse(cookies);
         if (!accessToken) {
