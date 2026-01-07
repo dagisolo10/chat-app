@@ -8,10 +8,8 @@ const app = express();
 const server = http.createServer(app);
 
 const io = new Server(server, {
-    cors: {
-        origin: [ENV.CLIENT_URL],
-        credentials: true,
-    },
+    cors: { origin: [ENV.CLIENT_URL], credentials: true },
+    pingTimeout: 5000, // default is 20000ms (20s)
 });
 
 const getReceiverSocketId = (userId) => {

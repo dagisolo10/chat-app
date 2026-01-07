@@ -21,13 +21,7 @@ export default function ChatPage() {
     const sidebarRef = useRef(null);
     const fileInputRef = useRef(null);
 
-    const online = chats.filter((chat) => onlineUsers.includes(chat._id));
-    const offline = chats.filter((chat) => !onlineUsers.includes(chat._id));
-
-    const all = [...online, ...offline];
-
-    console.log("Online", online);
-    console.log("Offline", offline);
+    const all = [...chats.filter((chat) => onlineUsers.includes(chat._id)), ...chats.filter((chat) => !onlineUsers.includes(chat._id))];
 
     useEffect(() => {
         const handleClickOutside = (e) => {
