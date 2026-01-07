@@ -2,9 +2,9 @@ import React from "react";
 
 export default function ChatAnimatedBorder({ children }) {
     return (
-        <div className="h-[95dvh] p-2 px-4 lg:px-8 relative overflow-hidden w-full z-1 flex items-center justify-center">
+        <div className="w-full h-[95dvh] p-2 px-4 lg:px-8 z-1 flex items-center justify-center">
             <div className="z-1 animated-border w-full h-full p-0.25 rounded-2xl">
-                <div className="flex z-3 bg-main w-full h-full border border-white/10 rounded-2xl">{children}</div>
+                <div className="flex z-3 relative overflow-hidden bg-main w-full h-full border border-white/10 rounded-2xl">{children}</div>
             </div>
         </div>
     );
