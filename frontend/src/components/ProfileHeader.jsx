@@ -35,7 +35,7 @@ export default function ProfileHeader() {
                     {/* Profile */}
                     <div className="avatar group avatar-online">
                         {/* Avatar Button Icon */}
-                        <button onClick={() => fileInputRef.current.click()} className="size-12  rounded-full overflow-hidden relative">
+                        <button onClick={() => fileInputRef.current.click()} className="size-12 cursor-pointer rounded-full overflow-hidden relative">
                             <img className="size-full object-cover" src={selectedImage || authUser.profilePic || "/avatar.png"} alt="User image" />
                             <div className="absolute inset-0 bg-black/50 rounded-full opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
                                 <span className="text-white text-xs">Change</span>
