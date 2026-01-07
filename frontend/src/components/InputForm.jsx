@@ -1,4 +1,4 @@
-export default function InputForm({ state, icon, label, placeholder, formData, setFormData }) {
+export default function InputForm({ state, icon, label, placeholder, formData, setFormData, type = "text" }) {
     return (
         <div className="w-full flex flex-col items-start gap-1">
             <label className="auth-input-label" htmlFor={label}>
@@ -10,7 +10,7 @@ export default function InputForm({ state, icon, label, placeholder, formData, s
                     className="w-full md:text-base text-sm px-2 outline-none py-1"
                     value={formData[state]}
                     onChange={(e) => setFormData({ ...formData, [state]: e.target.value })}
-                    type="text"
+                    type={type}
                     placeholder={placeholder}
                     id={label}
                 />

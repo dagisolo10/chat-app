@@ -51,7 +51,7 @@ export default function MessageInput() {
             )}
             <form className="flex items-center gap-2" onSubmit={handleSubmit}>
                 <input
-                    className="w-full text-sm placeholder:text-sm focus-within:border-slate-500 outline-none px-4 py-2 bg-slate-800 rounded-md border border-slate-700"
+                    className="w-full text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base focus-within:border-slate-500 outline-none px-4 py-2 bg-slate-800 rounded-md border border-slate-700"
                     placeholder="Type your message..."
                     onChange={(e) => {
                         setText(e.target.value);

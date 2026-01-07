@@ -44,6 +44,7 @@ export default function LoginPage() {
                             state="password"
                             icon={<Lock className="size-4 auth-input-icon" />}
                             label="Password"
+                            type="password"
                             placeholder="Enter your password"
                             formData={formData}
                             setFormData={setFormData}

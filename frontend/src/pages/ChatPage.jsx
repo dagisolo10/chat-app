@@ -34,18 +34,18 @@ export default function ChatPage() {
 
     return (
         <ChatAnimatedBorder>
-            <div ref={sidebarRef} className={`absolute top-0 ${sideBar ? "left-0" : "-left-full"} duration-1000 z-20 w-3/4 md:w-1/3 bg-slate-900/70 backdrop-blur-sm flex flex-col items-start h-full rounded-l-2xl border-r border-slate-300/20`}>
+            <div ref={sidebarRef} className={`absolute top-0 ${sideBar ? "left-0" : "-left-full"} duration-1000 z-20 w-3/4 sm:max-w-1/2 lg:max-w-1/3 bg-slate-900/90 backdrop-blur-sm flex flex-col items-start h-full rounded-l-2xl border-r border-slate-300/20`}>
                 <ProfileHeader />
                 <ActiveTabSwitch />
                 <div className="overflow-y-auto w-full p-4">{activeTab === "chats" ? <ChatList /> : <ContactList />}</div>
             </div>
 
-            <div className="flex flex-col gap-4 items-center border-r p-2 border-slate-300/20">
-                <img className="size-10 md:size-12 rounded-full object-cover" src={authUser.profilePic} alt="Profile Pic" />
+            <div className="flex flex-col gap-4 items-center border-r p-2 sm:p-4 border-slate-300/20">
+                <img className="size-10 sm:size-12 rounded-full object-cover" src={authUser.profilePic} alt="Profile Pic" />
                 <hr className="w-full text-slate-700" />
                 {chats.map((chat) => (
                     <div onClick={() => setSelectedUser(chat)} className={`avatar ${onlineUsers.includes(chat._id) ? "avatar-online" : "avatar-offline"}`}>
-                        <div className="size-10 md:size-12 cursor-pointer p-1 bg-slate-800 hover:bg-slate-700 duration-300 rounded-lg overflow-hidden ">
+                        <div className="size-10 sm:size-12 cursor-pointer p-1 bg-slate-800 hover:bg-slate-700 duration-300 rounded-lg overflow-hidden ">
                             <img className="object-cover rounded-full" src={chat.profilePic || "/avatar.png"} alt={chat.fullName} />
                         </div>
                     </div>

@@ -26,8 +26,8 @@ export default function ChatHeader() {
                     </div>
                 </div>
                 <div>
-                    <h3 className="text-slate-200 text-sm font-medium">{selectedUser.fullName}</h3>
-                    <p className="text-slate-400 text-xs">{isOnline ? "Online" : "Offline"}</p>
+                    <h3 className="text-slate-200 text-sm sm:text-base font-medium">{selectedUser.fullName}</h3>
+                    <p className="text-slate-400 text-xs sm:text-sm">{isOnline ? "Online" : "Offline"}</p>
                 </div>
             </div>
             <X onClick={() => setSelectedUser(null)} className="size-4 text-slate-500 hover:text-slate-300 duration-200 cursor-pointer" />
