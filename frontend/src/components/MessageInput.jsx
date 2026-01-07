@@ -51,7 +51,7 @@ export default function MessageInput() {
             )}
             <form className="flex items-center gap-4" onSubmit={handleSubmit}>
                 <input
-                    className="text-sm focus-within:border-slate-500 outline-none px-4 py-2 bg-slate-800 grow rounded-md border border-slate-700"
+                    className="text-sm placeholder:text-sm focus-within:border-slate-500 outline-none px-4 py-2 bg-slate-800 grow rounded-md border border-slate-700"
                     placeholder="Type your message..."
                     onChange={(e) => {
                         setText(e.target.value);
@@ -64,11 +64,11 @@ export default function MessageInput() {
                     <input ref={fileInputRef} onChange={handleImageUpload} type="file" className="hidden" />
 
                     <button type="button" className={`${imagePreview && "text-cyan-500"} text-slate-700 hover:bg-slate-700 hover:text-slate-300 border hover:border-slate-600 duration-300 cursor-pointer p-2 rounded-md`} onClick={() => fileInputRef.current.click()}>
-                        <Image size={20} />
+                        <Image className="size-4 md:size-5" />
                     </button>
 
                     <button disabled={!text.trim() && !imagePreview} className="text-cyan-300 bg-cyan-700 hover:text-cyan-700 hover:bg-slate-800 hover:border-slate-300 disabled:cursor-not-allowed duration-300 cursor-pointer p-2 rounded-md" type="submit">
-                        <Send size={20} />
+                        <Send className="size-4 md:size-5" />
                     </button>
                 </div>
             </form>

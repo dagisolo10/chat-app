@@ -3,10 +3,12 @@ import { useChatStore } from "../store/useChatStore";
 import UsersLoadingSkeleton from "./UserLoadingSkeleton";
 import NoChatsFound from "./NoChatsFound";
 import { useAuthStore } from "../store/useAuthStore";
+import { useUtilStore } from "../store/useUtilStore";
 
 export default function ChatList() {
     const { getChats, chats, isUsersLoading, setSelectedUser } = useChatStore();
     const { onlineUsers } = useAuthStore();
+    const { setSideBar, sideBar } = useUtilStore();
 
     useEffect(() => {
         getChats();
@@ -17,7 +19,13 @@ export default function ChatList() {
     return (
         <div className="space-y-2">
             {chats.map((chat) => (
-                <div key={chat._id} onClick={() => setSelectedUser(chat)} className="bg-cyan-500/10 p-2 rounded-lg cursor-pointer hover:bg-cyan-500/20 transition-colors">
+                <div
+                    key={chat._id}
+                    onClick={() => {
+                        setSelectedUser(chat);
+                        setSideBar(!sideBar);
+                    }}
+                    className="bg-cyan-500/10 p-2 rounded-lg cursor-pointer hover:bg-cyan-500/20 transition-colors">
                     <div className="flex items-center gap-4">
                         <div className={`avatar ${onlineUsers.includes(chat._id) ? "avatar-online" : "avatar-offline"}`}>
                             <div className="size-12 overflow-hidden rounded-full">

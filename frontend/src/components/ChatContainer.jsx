@@ -7,17 +7,16 @@ import MessagesLoadingSkeleton from "./MessagesLoadingSkeleton";
 import MessageInput from "./MessageInput";
 
 export default function ChatContainer() {
-    const { messages, selectedUser, getMessagesByUserId, isMessagesLoading, subscribeToMessages, unsubscribeToMessages } = useChatStore();
+    const { messages, selectedUser, getMessagesByUserId, isMessagesLoading, subscribeToMessages, unsubscribeFromMessages } = useChatStore();
     const { authUser } = useAuthStore();
     const messageEndRef = useRef(null);
 
     useEffect(() => {
         getMessagesByUserId(selectedUser._id);
         subscribeToMessages();
-
         // clean up
-        return () => unsubscribeToMessages();
-    }, [selectedUser, getMessagesByUserId, subscribeToMessages, unsubscribeToMessages]);
+        return () => unsubscribeFromMessages();
+    }, [selectedUser, getMessagesByUserId, subscribeToMessages, unsubscribeFromMessages]);
 
     useEffect(() => {
         if (messageEndRef.current) messageEndRef.current.scrollIntoView({ behavior: "smooth" });
@@ -29,10 +28,10 @@ export default function ChatContainer() {
             <ChatHeader />
             <div className="flex-1 p-6 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-slate-900 py-8">
                 {messages.length > 0 && !isMessagesLoading ? (
-                    <div className="max-w-3xl mx-auto space-y-1">
+                    <div className=" mx-auto space-y-1">
                         {messages.map((msg) => (
                             <div key={msg._id} className={`chat ${msg.senderId === authUser._id ? "chat-end" : "chat-start"}`}>
-                                <div className={`rounded-xl space-y-2 min-w-36 max-w-96 p-2 relative ${msg.senderId === authUser._id ? "bg-cyan-950 rounded-br-none text-white" : "bg-slate-800 rounded-bl-none text-slate-200"}`}>
+                                <div className={`rounded-xl space-y-2 min-w-36 max-w-48 p-2 relative ${msg.senderId === authUser._id ? "bg-cyan-950 rounded-br-none text-white" : "bg-slate-800 rounded-bl-none text-slate-200"}`}>
                                     {msg.image && <img src={msg.image} alt="Shared" className="rounded-md size-48 object-cover hover:object-contain" />}
                                     {msg.text && <p className="text-sm wrap-break-word whitespace-pre-wrap">{msg.text}</p>}
                                     <p className="text-xs mt-1 opacity-50 flex items-center gap-1">{new Date(msg.createdAt).toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" })}</p>

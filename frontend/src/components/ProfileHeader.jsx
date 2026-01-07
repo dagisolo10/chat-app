@@ -1,7 +1,8 @@
 import { useRef, useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
-import { LogOutIcon, Volume2, VolumeOffIcon } from "lucide-react";
+import { ArrowUpLeftFromSquareIcon, LogOutIcon, Volume2, VolumeOffIcon, X } from "lucide-react";
 import { useChatStore } from "../store/useChatStore";
+import { useUtilStore } from "../store/useUtilStore";
 
 const mouseClickSound = new Audio("/sounds/mouse-click.mp3");
 
@@ -9,6 +10,7 @@ export default function ProfileHeader() {
     const { logout, authUser, updateProfile } = useAuthStore();
     const [selectedImage, setSelectedImage] = useState(null);
     const { soundEnabled, toggleSound } = useChatStore();
+    const { setSideBar, sideBar } = useUtilStore();
 
     const fileInputRef = useRef(null);
 
@@ -53,7 +55,7 @@ export default function ProfileHeader() {
 
                 {/* Buttons */}
                 <div className="flex gap-4 items-center">
-                    <button className="text-slate-400 hover:text-slate-200 transition-colors" onClick={logout}>
+                    <button className="text-slate-400 hover:text-slate-200 transition-colors cursor-pointer" onClick={logout}>
                         <LogOutIcon size={16} />
                     </button>
                     <button
@@ -62,9 +64,12 @@ export default function ProfileHeader() {
                             mouseClickSound.play().catch((error) => console.log("Audio play failed", error));
                             toggleSound();
                         }}
-                        className="text-slate-400 hover:text-slate-200 transition-colors">
+                        className="text-slate-400 hover:text-slate-200 transition-colors cursor-pointer">
                         {soundEnabled ? <Volume2 size={16} /> : <VolumeOffIcon size={16} />}
                     </button>
+                    <butto className="" onClick={() => setSideBar(!sideBar)}>
+                        <X className="size-4 text-slate-400 hover:text-slate-200 transition-colors cursor-pointer" />
+                    </butto>
                 </div>
             </div>
         </div>

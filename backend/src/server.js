@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true, limit: "15mb" }));
 app.use(cookieParser());
 
 // CORS setup
-app.use(cors({ origin: [ENV.CLIENT_URL, "http://localhost:5174"], credentials: true }));
+app.use(cors({ origin: [ENV.CLIENT_URL, "http://localhost:5173"], credentials: true }));
 
 // Rate limiting (basic)
 // app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100, standardHeaders: true, legacyHeaders: false }));
