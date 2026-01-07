@@ -18,7 +18,7 @@ function App() {
     if (isCheckingAuth) return <LoadingPage />;
 
     return (
-        <div className="h-screen p-8 lg:px-8 bg-main relative flex items-center justify-center overflow-hidden">
+        <div className="h-screen bg-main relative flex items-center justify-center overflow-hidden">
             <Deco />
             <Routes>
                 <Route path="/" element={authUser ? <ChatPage /> : <Navigate to="/login" />} />
