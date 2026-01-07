@@ -13,6 +13,7 @@ const io = new Server(server, {
         credentials: true,
     },
 });
+console.log("CORS allowed client URL:", ENV.CLIENT_URL);
 
 const getReceiverSocketId = (userId) => {
     return userSocketMap[userId];
